@@ -1,0 +1,46 @@
+<%- include('../../partials/head.ejs')  %> 
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <h4><%= title %> </h4>
+                        <div class="profile-pics">
+                            <img 
+                                src="<%= user.profilePics %>" 
+                                alt="Profile-Picture"
+                                class="img-thumbnail img-fluid"
+                                id="profilePics"
+                            >
+                            <form action="/uploads/profilePics" class="my-2" id="profilePicsForm">
+                                <input 
+                                    type="file" 
+                                    name="profilePics" 
+                                    id="profilePicsFile" 
+                                    accept="image/*"
+                                >
+
+                                <input 
+                                    type="button"
+                                    value="Remove"
+                                    style="display: <%= user.profilePics.includes('default.png') ? 'none' : 'block' %> "
+                                    class="btn btn-danger btn-sm my-2"
+                                >
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<%- include('../../partials/footer.ejs')  %> 
+
+</body>
+</html>

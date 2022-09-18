@@ -1,0 +1,62 @@
+<%- include('../../partials/head.ejs')  %> 
+
+    <div class="container mt-3 mb-3">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card card-body">
+					<h2>Create New Account</h2>
+					<form action="/auth/sineup" method="POST" class="p-3">
+						<div class="form-group">
+							<label for="validationServer01" class="form-label">User Name (must be unique)</label>
+							<input type="text" class="form-control <%= errors.username ? 'is-invalid' : 'is-valid'  %> " id="validationServer01" name="username" value="<%= value.username ? value.username : '' %>">
+							<div class="invalid-feedback">
+								<%= errors.username && errors.username%> 
+							</div>
+							<div class="valid-feedback">
+								Looks Good
+							</div>
+						</div>
+						<div class="form-group">
+						  <label for="validationServer02" class="form-label">Email (must be valid)</label>
+						  <input type="email" class="form-control <%= errors.email ? 'is-invalid' : 'is-valid' %> " id="validationServer02" name="email" value="<%= value.email ? value.email : '' %>">
+						  <div class="invalid-feedback">
+								<%= errors.email && errors.email %> 
+						  </div>
+						  <div class="valid-feedback">
+								Looks Good
+					  	  </div>
+						</div>
+						<div class="form-group">
+							<label for="validationServer02" class="form-label">Password (must be strong)</label>
+							<input type="password" class="form-control <%= errors.password ? 'is-invalid' : 'is-valid' %>  " id="validationServer02" name="password" value="<%= value.password ? value.password : '' %>">
+							<div class="invalid-feedback">
+							 	<%= errors.password && errors.password %> 
+							</div>
+							<div class="valid-feedback">
+								Strong Password
+						    </div>
+						</div>
+						<div class="form-group">
+							<label for="validationServer02" class="form-label">Confirm Password</label>
+							<input type="password" class="form-control <%= errors.confirmPassword ? 'is-invalid' : 'is-valid'%> " id="validationServer02" name="confirmPassword">
+							<div class="invalid-feedback">
+							  <%= errors.confirmPassword && errors.confirmPassword %>
+							</div>
+							<div class="valid-feedback">
+								Strong Password
+						    </div>
+						</div>
+						<div class="col-12 mt-3">
+						  <button class="btn btn-primary" type="submit">Sine Up</button>
+						</div>
+					</form>
+					<center><a href="/auth/sinein" class="my-3">You have account?Please Sine In</a></center>
+				</div>
+			</div>
+		</div>
+    </div>
+
+<%- include('../../partials/footer.ejs')  %> 
+    
+</body>
+</html>
